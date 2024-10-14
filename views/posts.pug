@@ -1,0 +1,26 @@
+
+doctype html
+html
+  head
+    title Posts
+    link(rel='stylesheet', href='/styles.css')
+
+  body
+    h1 Posts
+
+    ul
+      each post in posts
+        li
+          strong= post.title
+          | : #{post.body}
+
+    h2 Add a New Post
+
+    form(action='/api/posts', method='POST')
+      label(for='title') Title:
+      input(type='text', name='title', required)
+
+      label(for='body') Body:
+      textarea(name='body', required)
+
+      button(type='submit') Submit
